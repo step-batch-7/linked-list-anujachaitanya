@@ -33,6 +33,8 @@ Status add_unique(List_ptr, int value);
 
 void display(List_ptr);
 
+Node_ptr create_node(int value);
+
 Status remove_from_start(List_ptr);
 Status remove_from_end(List_ptr);
 Status remove_at(List_ptr, int position);
