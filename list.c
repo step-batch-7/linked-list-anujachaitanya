@@ -1,6 +1,6 @@
-#include "list.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "list.h"
 
 List_ptr create_list(void)
 {
@@ -84,26 +84,26 @@ Status insert_at(List_ptr list, int value, int position)
   return Success;
 }
 
-Status is_exists(List_ptr list, int value)
+int search_number_position(int number, List_ptr list)
 {
-  Status is_exists = Failure;
   Node_ptr p_walk = list->head;
-  while (p_walk != NULL)
+  int position = -1;
+  for (int i = 0; i < list->count; i++)
   {
-    if (p_walk->value == value)
+    if (p_walk->value == number)
     {
-      is_exists = Success;
+      position = i;
       break;
     }
     p_walk = p_walk->next;
   }
-  return is_exists;
+  return position;
 }
 
 Status add_unique(List_ptr list, int value)
 {
-  Status is_occurred = is_exists(list, value);
-  if (!is_occurred)
+  int position = search_number_position(value, list);
+  if (position == -1)
   {
     add_to_end(list, value);
     return Success;
@@ -148,9 +148,16 @@ Status remove_from_end(List_ptr list)
 
 Status remove_at(List_ptr list, int position)
 {
-  if (list->head == NULL)
+  if (list->head == NULL || position >= list->count)
   {
     return Failure;
+  }
+  if (position == 0)
+  {
+    Node_ptr temp = list->head;
+    list->head = list->head->next;
+    free(temp);
+    return Success;
   }
   int count = 0;
   Node_ptr p_walk = list->head;

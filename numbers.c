@@ -1,9 +1,10 @@
-#include "list.h"
 #include <stdio.h>
+#include "list.h"
 
 void switch_operations(List_ptr list, char option)
 {
-  int number;
+  Status result;
+  int number, position;
   switch (option)
   {
   case 'a':
@@ -18,6 +19,67 @@ void switch_operations(List_ptr list, char option)
     scanf("%d", &number);
     add_to_start(list, number);
     printf("Number added");
+    break;
+
+  case 'c':
+    printf("Enter the position to add number : ");
+    scanf("%d", &position);
+    printf("Enter the number to add in list: ");
+    scanf("%d", &number);
+    add_to_start(list, number);
+    printf("Number added");
+    break;
+
+  case 'd':
+    printf("Enter unique number to add in the list: ");
+    scanf("%d", &number);
+    result = add_unique(list, number);
+    if (result)
+    {
+      printf("Number added");
+    }
+    else
+    {
+      printf("%d is not unique", number);
+    }
+    break;
+
+  case 'e':
+    result = remove_from_end(list);
+    if (result)
+    {
+      printf("Number removed");
+    }
+    else
+    {
+      printf("List is empty");
+    }
+    break;
+
+  case 'f':
+    result = remove_from_start(list);
+    if (result)
+    {
+      printf("Number removed");
+    }
+    else
+    {
+      printf("List is empty");
+    }
+    break;
+
+  case 'g':
+    printf("Enter the position to delete number : ");
+    scanf("%d", &position);
+    result = remove_at(list, position);
+    if (result)
+    {
+      printf("Number removed");
+    }
+    else
+    {
+      printf("List is empty");
+    }
     break;
 
   case 'l':
