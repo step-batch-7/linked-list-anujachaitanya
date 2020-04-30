@@ -154,10 +154,7 @@ Status remove_at(List_ptr list, int position)
   }
   if (position == 0)
   {
-    Node_ptr temp = list->head;
-    list->head = list->head->next;
-    free(temp);
-    return Success;
+    return remove_from_start(list);
   }
   int count = 0;
   Node_ptr p_walk = list->head;
