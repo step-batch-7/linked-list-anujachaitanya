@@ -12,5 +12,7 @@ int main(void)
   display(list);
   insert_at(list, 12, 3);
   display(list);
+  remove_from_end(list);
+  display(list);
   return 0;
 }
