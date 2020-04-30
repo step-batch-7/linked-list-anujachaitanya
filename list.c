@@ -18,6 +18,38 @@ Node_ptr create_node(int value)
   return new_node;
 }
 
+Status add_to_end(List_ptr list, int value)
+{
+  Node_ptr new_node = create_node(value);
+  if (list->head == NULL)
+  {
+    list->head = new_node;
+  }
+  else
+  {
+    list->last->next = new_node;
+  }
+  list->last = new_node;
+  return Success;
+}
+
+Status add_to_start(List_ptr list, int value)
+{
+  Node_ptr new_node = create_node(value);
+
+  if (list->head == NULL)
+  {
+    list->head = new_node;
+    list->last = new_node;
+    return Success;
+  }
+
+  Node_ptr temp = list->head;
+  list->head = new_node;
+  new_node->next = temp;
+  return Success;
+}
+
 void display(List_ptr list)
 {
   Node_ptr p_walk = list->head;
