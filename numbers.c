@@ -7,6 +7,8 @@ int main(void)
   add_to_start(list, 1032);
   add_to_start(list, 103);
   add_to_start(list, 1034);
+  display(list);
+  printf("%d", is_exists(list, 10));
   insert_at(list, 12, 3);
   return 0;
 }

@@ -77,6 +77,21 @@ Status insert_at(List_ptr list, int value, int position)
   return Success;
 }
 
+Status is_exists(List_ptr list, int value)
+{
+  Status is_exists = Failure;
+  Node_ptr p_walk = list->head;
+  while (p_walk != NULL)
+  {
+    if (p_walk->value == value)
+    {
+      is_exists = Success;
+      break;
+    }
+    p_walk = p_walk->next;
+  }
+  return is_exists;
+}
 void display(List_ptr list)
 {
   Node_ptr p_walk = list->head;
@@ -85,5 +100,6 @@ void display(List_ptr list)
     printf("%d\t", p_walk->value);
     p_walk = p_walk->next;
   }
+  printf("\n");
   free(p_walk);
 }
