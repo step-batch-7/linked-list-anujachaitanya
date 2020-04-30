@@ -92,6 +92,18 @@ Status is_exists(List_ptr list, int value)
   }
   return is_exists;
 }
+
+Status add_unique(List_ptr list, int value)
+{
+  Status is_occurred = is_exists(list, value);
+  if (!is_occurred)
+  {
+    add_to_end(list, value);
+    return Success;
+  }
+  return Failure;
+}
+
 void display(List_ptr list)
 {
   Node_ptr p_walk = list->head;
