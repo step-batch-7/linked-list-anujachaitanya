@@ -119,6 +119,10 @@ Status remove_from_start(List_ptr list)
 
 Status remove_from_end(List_ptr list)
 {
+  if (list->head == NULL)
+  {
+    return Failure;
+  }
   int count = 1;
   Node_ptr p_walk = list->head;
   while (count < list->count - 1)
