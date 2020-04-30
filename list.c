@@ -104,6 +104,19 @@ Status add_unique(List_ptr list, int value)
   return Failure;
 }
 
+Status remove_from_start(List_ptr list)
+{
+  if (list->head == NULL)
+  {
+    return Failure;
+  }
+  Node_ptr temp = list->head;
+  list->head = list->head->next;
+  list->count--;
+  free(temp);
+  return Success;
+}
+
 void display(List_ptr list)
 {
   Node_ptr p_walk = list->head;
