@@ -1,5 +1,6 @@
 #include "list.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 List_ptr create_list(void)
 {
@@ -30,6 +31,7 @@ Status add_to_end(List_ptr list, int value)
     list->last->next = new_node;
   }
   list->last = new_node;
+  list->count++;
   return Success;
 }
 
@@ -41,12 +43,37 @@ Status add_to_start(List_ptr list, int value)
   {
     list->head = new_node;
     list->last = new_node;
-    return Success;
+  }
+  else
+  {
+    Node_ptr temp = list->head;
+    list->head = new_node;
+    new_node->next = temp;
   }
 
-  Node_ptr temp = list->head;
-  list->head = new_node;
-  new_node->next = temp;
+  list->count++;
+  return Success;
+}
+
+Status insert_at(List_ptr list, int value, int position)
+{
+  if (position > list->count)
+  {
+    return Failure;
+  }
+  Node_ptr p_walk = list->head;
+  Node_ptr previous_node = list->head;
+  int counter = 0;
+  while (counter != position)
+  {
+    previous_node = p_walk;
+    p_walk = p_walk->next;
+    counter++;
+  }
+  Node_ptr new_node = create_node(value);
+  previous_node->next = new_node;
+  new_node->next = p_walk;
+  list->count++;
   return Success;
 }
 
