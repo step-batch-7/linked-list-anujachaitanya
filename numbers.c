@@ -8,11 +8,9 @@ int main(void)
   add_to_start(list, 1034);
   display(list);
   add_unique(list, 9);
-  remove_from_start(list);
+  insert_at(list, 2, 0);
+  remove_at(list, 0);
   display(list);
-  insert_at(list, 12, 3);
-  display(list);
-  remove_from_end(list);
-  display(list);
+
   return 0;
 }
