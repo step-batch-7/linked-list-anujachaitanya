@@ -26,12 +26,20 @@ void switch_operations(List_ptr list, char option)
     scanf("%d", &position);
     printf("Enter the number to add in list: ");
     scanf("%d", &number);
-    add_to_start(list, number);
-    printf("Number added");
+    result = insert_at(list, number, position);
+    if (result)
+    {
+      printf("Number added");
+    }
+    else
+    {
+      printf("Position is not valid");
+    }
+
     break;
 
   case 'd':
-    printf("Enter unique number to add in the list: ");
+    printf("Enter unique number to add in the list : ");
     scanf("%d", &number);
     result = add_unique(list, number);
     if (result)
@@ -45,7 +53,7 @@ void switch_operations(List_ptr list, char option)
     break;
 
   case 'e':
-    result = remove_from_end(list);
+    result = remove_from_start(list);
     if (result)
     {
       printf("Number removed");
@@ -57,7 +65,7 @@ void switch_operations(List_ptr list, char option)
     break;
 
   case 'f':
-    result = remove_from_start(list);
+    result = remove_from_end(list);
     if (result)
     {
       printf("Number removed");
@@ -83,7 +91,7 @@ void switch_operations(List_ptr list, char option)
     break;
 
   case 'h':
-    printf("Enter the number to delete the first occurrence ");
+    printf("Enter the number to delete the first occurrence : ");
     scanf("%d", &number);
     result = remove_first_occurrence(list, number);
     if (result)
@@ -98,7 +106,7 @@ void switch_operations(List_ptr list, char option)
     break;
 
   case 'i':
-    printf("Enter the number to delete the all occurrences ");
+    printf("Enter the number to delete the all occurrences : ");
     scanf("%d", &number);
     result = remove_all_occurrences(list, number);
     if (result)
@@ -108,6 +116,26 @@ void switch_operations(List_ptr list, char option)
     else
     {
       printf("Number not found");
+    }
+
+    break;
+
+  case 'j':
+    result = clear_list(list);
+    printf("List cleared");
+    break;
+
+  case 'k':
+    printf("Enter the number to check if the number exists in the list : ");
+    scanf("%d", &number);
+    result = is_exist(list, number);
+    if (result)
+    {
+      printf("Number exists");
+    }
+    else
+    {
+      printf("Number does not exists");
     }
 
     break;

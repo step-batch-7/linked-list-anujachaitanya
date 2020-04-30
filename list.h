@@ -44,6 +44,8 @@ Status remove_all_occurrences(List_ptr, int value);
 
 int search_number_position(int number, List_ptr list);
 
+Status is_exist(List_ptr list, int number);
+
 Status clear_list(List_ptr); // Removes all elements in the list
 
 void destroy_list(List_ptr); // Frees the elements and the list structure from memory

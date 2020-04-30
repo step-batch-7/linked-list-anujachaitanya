@@ -196,6 +196,25 @@ Status remove_all_occurrences(List_ptr list, int value)
   return Success;
 }
 
+Status clear_list(List_ptr list)
+{
+  while (list->head != NULL)
+  {
+    remove_from_start(list);
+  }
+  return Success;
+}
+
+Status is_exist(List_ptr list, int number)
+{
+  int position = search_number_position(number, list);
+  if (position == -1)
+  {
+    return Failure;
+  }
+  return Success;
+}
+
 void display(List_ptr list)
 {
   Node_ptr p_walk = list->head;
