@@ -82,6 +82,36 @@ void switch_operations(List_ptr list, char option)
     }
     break;
 
+  case 'h':
+    printf("Enter the number to delete the first occurrence ");
+    scanf("%d", &number);
+    result = remove_first_occurrence(list, number);
+    if (result)
+    {
+      printf("Number removed");
+    }
+    else
+    {
+      printf("Number not found");
+    }
+
+    break;
+
+  case 'i':
+    printf("Enter the number to delete the all occurrences ");
+    scanf("%d", &number);
+    result = remove_all_occurrences(list, number);
+    if (result)
+    {
+      printf("Number removed");
+    }
+    else
+    {
+      printf("Number not found");
+    }
+
+    break;
+
   case 'l':
     printf("Your List : \n");
     display(list);
