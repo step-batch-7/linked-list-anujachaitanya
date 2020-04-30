@@ -1,7 +1,7 @@
 #include "list.h"
 #include <stdio.h>
 
-void switch_opertions(List_ptr list, char option)
+void switch_operations(List_ptr list, char option)
 {
   int number;
   switch (option)
@@ -10,6 +10,13 @@ void switch_opertions(List_ptr list, char option)
     printf("Enter the number to add at the end of the list : ");
     scanf("%d", &number);
     add_to_end(list, number);
+    printf("Number added");
+    break;
+
+  case 'b':
+    printf("Enter the number to add to start of the list : ");
+    scanf("%d", &number);
+    add_to_start(list, number);
     printf("Number added");
     break;
 
