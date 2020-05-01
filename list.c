@@ -226,3 +226,9 @@ void display(List_ptr list)
   printf("\n");
   free(p_walk);
 }
+
+void destroy_list(List_ptr list)
+{
+  clear_list(list);
+  free(list);
+}

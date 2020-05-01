@@ -167,6 +167,6 @@ int main(void)
     scanf(" %c", &option);
     switch_operations(list, option);
   }
-
+  destroy_list(list);
   return 0;
 }
