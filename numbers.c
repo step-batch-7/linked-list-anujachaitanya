@@ -1,6 +1,18 @@
 #include <stdio.h>
 #include "list.h"
 
+void show_result_for_remove(Status result)
+{
+  if (result)
+  {
+    printf("Number is removed");
+  }
+  else
+  {
+    printf("Failed to remove");
+  }
+}
+
 void switch_operations(List_ptr list, char option)
 {
   Status result;
@@ -54,70 +66,33 @@ void switch_operations(List_ptr list, char option)
 
   case 'e':
     result = remove_from_start(list);
-    if (result)
-    {
-      printf("Number removed");
-    }
-    else
-    {
-      printf("List is empty");
-    }
+    show_result_for_remove(result);
     break;
 
   case 'f':
     result = remove_from_end(list);
-    if (result)
-    {
-      printf("Number removed");
-    }
-    else
-    {
-      printf("List is empty");
-    }
+    show_result_for_remove(result);
     break;
 
   case 'g':
     printf("Enter the position to delete number : ");
     scanf("%d", &position);
     result = remove_at(list, position);
-    if (result)
-    {
-      printf("Number removed");
-    }
-    else
-    {
-      printf("List is empty");
-    }
+    show_result_for_remove(result);
     break;
 
   case 'h':
     printf("Enter the number to delete the first occurrence : ");
     scanf("%d", &number);
     result = remove_first_occurrence(list, number);
-    if (result)
-    {
-      printf("Number removed");
-    }
-    else
-    {
-      printf("Number not found");
-    }
-
+    show_result_for_remove(result);
     break;
 
   case 'i':
     printf("Enter the number to delete the all occurrences : ");
     scanf("%d", &number);
     result = remove_all_occurrences(list, number);
-    if (result)
-    {
-      printf("Number removed");
-    }
-    else
-    {
-      printf("Number not found");
-    }
-
+    show_result_for_remove(result);
     break;
 
   case 'j':
