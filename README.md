@@ -1,8 +1,11 @@
 # linked-list-anujachaitanya
 linked-list-anujachaitanya created by GitHub Classroom
-Write a menu driven application that will aid the user in keeping track of a list of numbers. Your application should provide the user with the following menu
+Write a menu driven application that will aid the user in keeping track
+of a list of numbers. Your application should provide the user with the following
+menu
 
-```Main Menu
+```
+Main Menu
 ---------
 (a) add a number to the end of the list
 (b) add a number to the start of the list
@@ -16,7 +19,10 @@ Write a menu driven application that will aid the user in keeping track of a lis
 (j) clear the whole list
 (k) check if a number exists in the list
 (l) display the list of numbers
-(m) exit```
+(m) exit
 
 Please enter the alphabet of the operation you would like to perform
-Each operation, upon completion returns the user back to this menu, except for the (m) exit option which quits the program instead.
+```
+
+Each operation, upon completion returns the user back to this menu, except
+for the (m) exit option which quits the program instead.
