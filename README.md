@@ -1,8 +1,6 @@
 # linked-list-anujachaitanya
 linked-list-anujachaitanya created by GitHub Classroom
-Write a menu driven application that will aid the user in keeping track
-of a list of numbers. Your application should provide the user with the following
-menu
+
 
 ```
 Main Menu
