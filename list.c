@@ -164,6 +164,11 @@ Status remove_at(List_ptr list, int position)
   {
     return remove_from_start(list);
   }
+
+  if (position == list->count - 1)
+  {
+    return remove_from_end(list);
+  }
   int count = 0;
   Node_ptr p_walk = list->head;
   Node_ptr previous_node = list->head;
