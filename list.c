@@ -57,7 +57,7 @@ Status add_to_start(List_ptr list, int value)
 
 Status insert_at(List_ptr list, int value, int position)
 {
-  if (position > list->count - 1)
+  if (position > list->count)
   {
     return Failure;
   }
