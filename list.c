@@ -131,6 +131,14 @@ Status remove_from_end(List_ptr list)
     return Failure;
   }
 
+  if (list->count == 1)
+  {
+    list->head = NULL;
+    list->last = NULL;
+    list->count = 0;
+    return Success;
+  }
+
   int count = 1;
   Node_ptr p_walk = list->head;
   while (count < list->count - 1)
