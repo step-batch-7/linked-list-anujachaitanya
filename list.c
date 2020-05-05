@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+
 #include "list.h"
 
 List_ptr create_list(void)
@@ -160,6 +161,7 @@ Status remove_at(List_ptr list, int position)
   {
     return Failure;
   }
+
   if (position == 0)
   {
     return remove_from_start(list);
@@ -169,6 +171,7 @@ Status remove_at(List_ptr list, int position)
   {
     return remove_from_end(list);
   }
+
   int count = 0;
   Node_ptr p_walk = list->head;
   Node_ptr previous_node = list->head;
