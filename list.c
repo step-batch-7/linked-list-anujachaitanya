@@ -57,7 +57,7 @@ Status add_to_start(List_ptr list, int value)
 
 Status insert_at(List_ptr list, int value, int position)
 {
-  if (position > list->count)
+  if (position > list->count || position < 0)
   {
     return Failure;
   }
@@ -156,7 +156,7 @@ Status remove_from_end(List_ptr list)
 
 Status remove_at(List_ptr list, int position)
 {
-  if (list->head == NULL || position >= list->count)
+  if (list->head == NULL || position >= list->count || position < 0)
   {
     return Failure;
   }
