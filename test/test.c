@@ -37,7 +37,7 @@ void show_result(Status result, char *description)
   printf(" %s \n", description);
 }
 
-void test_add_to_end(List_ptr list)
+void test_add_to_end_in_empty_list(List_ptr list)
 {
   char test1[] = "Should add element when list is empty";
   List_ptr expected_list = create_list();
@@ -46,9 +46,20 @@ void test_add_to_end(List_ptr list)
   show_result(result, test1);
 }
 
+void test_add_to_end_in_long_list(List_ptr list)
+{
+  char test2[] = "should add element in the end of long list";
+  List_ptr expected_list = create_list();
+  add_to_start(expected_list, 9);
+  add_to_start(expected_list, 8);
+  Status result = add_to_end(list, 9) && assert_linked_list(list, expected_list);
+  show_result(result, test2);
+}
+
 int main(void)
 {
   List_ptr list = create_list();
-  test_add_to_end(list);
+  test_add_to_end_in_empty_list(list);
+  test_add_to_end_in_long_list(list);
   return 0;
 }
