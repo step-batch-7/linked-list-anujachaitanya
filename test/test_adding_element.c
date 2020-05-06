@@ -1,41 +1,7 @@
 #include "../list.h"
+#include "test_utils.h"
+
 #include <stdio.h>
-#include <stdlib.h>
-
-Status assert_linked_list(List_ptr actual, List_ptr expected)
-{
-  Status is_equal = Success;
-  if (actual->count != expected->count)
-  {
-    return Failure;
-  }
-  Node_ptr p_walk_actual = actual->head;
-  Node_ptr p_walk_expected = expected->head;
-  while (p_walk_actual != NULL)
-  {
-    if (p_walk_actual->value != p_walk_expected->value)
-    {
-      is_equal = Failure;
-      break;
-    }
-    p_walk_actual = p_walk_actual->next;
-    p_walk_expected = p_walk_expected->next;
-  }
-  return is_equal;
-}
-
-void show_result(Status result, char *description)
-{
-  if (result)
-  {
-    printf("✅");
-  }
-  else
-  {
-    printf("❌");
-  }
-  printf(" %s \n", description);
-}
 
 void test_add_to_end_in_empty_list(List_ptr list)
 {
@@ -79,6 +45,19 @@ void test_insert_at_start_of_list(List_ptr list)
   show_result(result, test4);
 }
 
+void test_insert_at_end_of_list(List_ptr list)
+{
+  char test5[] = "Should insert in the start of the list";
+  List_ptr expected_list = create_list();
+  add_to_end(expected_list, 6);
+  add_to_end(expected_list, 8);
+  add_to_end(expected_list, 7);
+  add_to_end(expected_list, 9);
+  add_to_end(expected_list, 5);
+  Status result = insert_at(list, 5, 4) && assert_linked_list(list, expected_list);
+  show_result(result, test5);
+}
+
 int main(void)
 {
   List_ptr list = create_list();
@@ -86,5 +65,6 @@ int main(void)
   test_add_to_end_in_long_list(list);
   test_insert_at_in_middle(list);
   test_insert_at_start_of_list(list);
+  test_insert_at_end_of_list(list);
   return 0;
 }
