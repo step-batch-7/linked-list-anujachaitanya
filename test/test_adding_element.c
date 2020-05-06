@@ -48,6 +48,15 @@ void test_insert_at_end_of_list(List_ptr list)
   show_result(result, test5);
 }
 
+void test_invalid_position_in_insert_at(List_ptr list)
+{
+  char test6[] = "should not insert element at list";
+  int expected_values[] = {6, 8, 7, 9, 5};
+  List_ptr expected_list = get_expected_list(expected_values, 5);
+  Status result = !(insert_at(list, 1, -3) && assert_linked_list(list, expected_list));
+  show_result(result, test6);
+}
+
 int main(void)
 {
   List_ptr list = create_list();
@@ -56,5 +65,6 @@ int main(void)
   test_insert_at_in_middle(list);
   test_insert_at_start_of_list(list);
   test_insert_at_end_of_list(list);
+  test_invalid_position_in_insert_at(list);
   return 0;
 }
