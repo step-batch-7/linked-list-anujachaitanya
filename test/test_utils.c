@@ -24,6 +24,30 @@ Status assert_linked_list(List_ptr actual, List_ptr expected)
   return is_equal;
 }
 
+List_ptr get_expected_list(int *array, int length)
+{
+  List_ptr expected_list = create_list();
+  int counter = 0;
+  while (counter < length)
+  {
+    Node_ptr new_node = malloc(sizeof(Node));
+    new_node->value = array[counter];
+    new_node->next = NULL;
+    if (expected_list->head == NULL)
+    {
+      expected_list->head = new_node;
+    }
+    else
+    {
+      expected_list->last->next = new_node;
+    }
+    expected_list->last = new_node;
+    expected_list->count++;
+    counter++;
+  }
+  return expected_list;
+}
+
 void show_result(Status result, char *description)
 {
   if (result)
