@@ -58,7 +58,7 @@ void test_add_to_end_in_long_list(List_ptr list)
 
 void test_insert_at_in_middle(List_ptr list)
 {
-  char test3[] = "should insert the element in the middle of list";
+  char test3[] = "Should insert the element in the middle of list";
   List_ptr expected_list = create_list();
   add_to_end(expected_list, 8);
   add_to_end(expected_list, 7);
@@ -67,11 +67,24 @@ void test_insert_at_in_middle(List_ptr list)
   show_result(result, test3);
 }
 
+void test_insert_at_start_of_list(List_ptr list)
+{
+  char test4[] = "Should insert in the start of the list";
+  List_ptr expected_list = create_list();
+  add_to_end(expected_list, 8);
+  add_to_end(expected_list, 7);
+  add_to_end(expected_list, 9);
+  add_to_start(expected_list, 6);
+  Status result = insert_at(list, 6, 0) && assert_linked_list(list, expected_list);
+  show_result(result, test4);
+}
+
 int main(void)
 {
   List_ptr list = create_list();
   test_add_to_end_in_empty_list(list);
   test_add_to_end_in_long_list(list);
   test_insert_at_in_middle(list);
+  test_insert_at_start_of_list(list);
   return 0;
 }
