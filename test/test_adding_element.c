@@ -50,11 +50,15 @@ void test_insert_at_end_of_list(List_ptr list)
 
 void test_invalid_position_in_insert_at(List_ptr list)
 {
-  char test6[] = "should not insert element at list";
+  char test6[] = "should not insert element at list for negative position";
   int expected_values[] = {6, 8, 7, 9, 5};
   List_ptr expected_list = get_expected_list(expected_values, 5);
   Status result = !(insert_at(list, 1, -3)) && assert_linked_list(list, expected_list);
   show_result(result, test6);
+
+  char test7[] = "should not insert element in list for invalid position";
+  result = !(insert_at(list, 1, 19)) && assert_linked_list(list, expected_list);
+  show_result(result, test7);
 }
 
 int main(void)
